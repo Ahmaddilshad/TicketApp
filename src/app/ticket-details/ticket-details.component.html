@@ -1,0 +1,37 @@
+<div class="jumbotron py-3" >
+    <h1 class="display-4" style="float: left;">Tickets
+      <button class="btn btn-info btn-lg btn-block" type="submit" [routerLink]="['/app-ticket-detail-form']">New Ticket</button>
+    </h1>
+  </div>
+  
+  <div>
+    <table class="table">
+      <thead class="thead-light">
+         <tr>
+           <th>Ticket Id</th>
+           <th>Summary</th>
+           <th>Complaint </th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tckt of service.list">
+          <td >{{tckt.ticketId}}</td>
+          <td>{{tckt.summary}}</td>
+          <td >{{tckt.complaint}}</td>
+          <td>
+            <i class="fa fa-edit fa-lg" (click)="populateForm(tckt)" routerLink="/app-ticket-detail-form"></i>
+            <i class="fa fa-trash-alt fa-lg text-danger" (click)="onDelete(tckt.ticketId)"></i> 
+            <i class="fa fa-bars fa-lg"  [routerLink]="['/app-ticket-summary', tckt.ticketId]"></i>
+            
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  
+  
+  
+

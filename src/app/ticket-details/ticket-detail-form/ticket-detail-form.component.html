@@ -1,0 +1,41 @@
+<div class="jumbotron"><h1 class="display-6 text-center" style="background-color:powderblue;" >Create Ticket</h1></div>
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="ticketId" [value]="service.formData.ticketId" />
+    
+    <div class="form-group">
+        <label>Summary</label>
+        <input class="form-control form-control-lg" placeholder="Summary" name="summary" #summary="ngModel" [(ngModel)]="service.formData.summary" required [class.invalid]="summary.invalid && summary.touched">
+    
+    </div>
+    
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control form-control-lg" placeholder="Description" name="description" #description="ngModel" [(ngModel)]="service.formData.description" required [class.invalid]="description.invalid && description.touched">
+    
+    </div>
+    
+    <div class="form-group">
+        <label>ComplaintType</label>
+        
+        <span>
+
+        <select name="Complaint" id="complaint" #complaint="ngModel" [(ngModel)]="service.formData.complaint" required [class.invalid]="complaint.invalid && complaint.touched">
+          <option value="Physical Damage">Physical Damage</option>
+          <option value="Battery Issue">Battery Issue</option>
+          <option value="Software Complaint">Software Complaint</option>
+          <option value="Others">Others</option>
+        </select>
+        </span>
+        
+    </div>
+     <br>
+    <div class="row">    
+      <div class="form-group">
+        <button class="btn btn-success  btn-block"  type="submit" [disabled]="form.invalid">CREATE TICKET</button>        
+      
+        <button class="btn btn-info  btn-block" type="submit" [disabled]="form.invalid">CANCEL</button>
+      </div>
+    </div>
+    
+
+</form>

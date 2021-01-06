@@ -1,0 +1,31 @@
+<div class="jumbotron jumbotron-fluid">
+    
+     <h1 class="display-1 text-center" style="background-color:powderblue;" >
+        Laptop Service Portal</h1></div>
+        <br>
+        <br>
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <div>
+     <div class="col d-flex justify-content-center">
+        <div class="form-group col-md-3 ">
+            <label>USER NAME</label>
+            <input class="form-control form-control-lg" type="userName" placeholder="Username" name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName" required [class.invalid]="userName.invalid && userName.touched">
+        </div>
+     </div>
+     <div class="col d-flex justify-content-center">
+        <div class="form-group col-md-3">
+            <label>PASSWORD</label>
+            <input class="form-control form-control-lg" type="password" placeholder="Password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" required [class.invalid]="Password.invalid && Password.touched">
+        </div>
+     </div>
+     
+    
+    </div>
+    <br>
+    <div class="col d-flex justify-content-center">
+    <div class="form-group col-md-2">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">LOG IN</button>
+        <a href="/app-signup-details">Create an account</a>
+    </div>
+    </div>
+</form>
